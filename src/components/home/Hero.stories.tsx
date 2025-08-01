@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
-import LatestNews from "./LatestNews"
+import Hero from "./Hero"
 
 const meta = {
-  title: "Home/LatestNews",
-  component: LatestNews,
+  title: "Home/Hero",
+  component: Hero,
   parameters: {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof LatestNews>
+} satisfies Meta<typeof Hero>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -31,20 +31,10 @@ export const Tablet: Story = {
   },
 }
 
-export const DarkBackground: Story = {
+export const WithCustomBackground: Story = {
   decorators: [
     (Story: any) => (
-      <div style={{ background: "#1a1a1a", padding: "2rem" }}>
-        <Story />
-      </div>
-    ),
-  ],
-}
-
-export const WithCustomContainer: Story = {
-  decorators: [
-    (Story: any) => (
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <div style={{ background: "linear-gradient(to bottom, #f5f5f5, #e0e0e0)" }}>
         <Story />
       </div>
     ),

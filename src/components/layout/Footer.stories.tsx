@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
-import LatestNews from "./LatestNews"
+import Footer from "./Footer"
 
 const meta = {
-  title: "Home/LatestNews",
-  component: LatestNews,
+  title: "Layout/Footer",
+  component: Footer,
   parameters: {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof LatestNews>
+} satisfies Meta<typeof Footer>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -31,20 +31,24 @@ export const Tablet: Story = {
   },
 }
 
-export const DarkBackground: Story = {
+export const DarkMode: Story = {
   decorators: [
     (Story: any) => (
-      <div style={{ background: "#1a1a1a", padding: "2rem" }}>
+      <div style={{ background: "#1a1a1a", minHeight: "100vh" }}>
         <Story />
       </div>
     ),
   ],
 }
 
-export const WithCustomContainer: Story = {
+export const WithContent: Story = {
   decorators: [
     (Story: any) => (
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+        <div style={{ flex: 1, padding: "2rem" }}>
+          <h1>Page Content</h1>
+          <p>The footer will stick to the bottom of the page.</p>
+        </div>
         <Story />
       </div>
     ),
