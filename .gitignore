@@ -42,6 +42,9 @@ next-env.d.ts
 .wrangler
 .dev.vars*
 
+# Cloudflare
+/.cloudflare
+
 *storybook.log
 storybook-static
 

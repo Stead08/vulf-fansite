@@ -41,3 +41,13 @@ Key architectural decisions:
 
 - **shadcn/ui** for building UI components
 - **Storybook** for managing design system and component development
+
+## Testing Requirements
+
+**IMPORTANT**: After implementing any component or page, you MUST create the following tests:
+
+1. **Unit Tests** - Test individual component logic and behavior
+2. **E2E Tests** - Test user workflows and integration scenarios
+3. **Storybook Component Tests** - Document and test component variations in Storybook
+
+This ensures comprehensive test coverage and maintains code quality across the application.
