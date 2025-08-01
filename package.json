@@ -51,5 +51,8 @@
   },
   "resolutions": {
     "vite": "6.3.5"
+  },
+  "engines": {
+    "pnpm": "10.8.0"
   }
 }
