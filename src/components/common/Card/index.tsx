@@ -12,7 +12,7 @@ interface CardProps {
 
 export default function Card({ title, excerpt, date, image, href, tags }: CardProps) {
   return (
-    <article className="card overflow-hidden group h-full flex flex-col">
+    <article className="relative card overflow-hidden group h-full flex flex-col">
       {/* Image */}
       {image && (
         <div className="relative aspect-[16/9] overflow-hidden">
