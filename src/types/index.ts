@@ -17,6 +17,15 @@ export interface Album {
   description?: string
   spotifyUrl?: string
   appleUrl?: string
+  credits?: {
+    producer: string[]
+    engineer: string[]
+    mastering: string[]
+    musicians: {
+      name: string
+      instruments: string[]
+    }[]
+  }
 }
 
 // トラック情報の型定義
