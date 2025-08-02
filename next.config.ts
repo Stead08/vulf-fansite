@@ -1,7 +1,8 @@
+import withMDX from "@next/mdx"
 import type { NextConfig } from "next"
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   headers: async () => {
     return [
       {
@@ -51,9 +52,12 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-}
+  experimental: {
+    mdxRs: true,
+  },
+} satisfies NextConfig
 
-export default nextConfig
+export default withMDX()(nextConfig)
 
 // added by create cloudflare to enable calling `getCloudflareContext()` in `next dev`
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare"
