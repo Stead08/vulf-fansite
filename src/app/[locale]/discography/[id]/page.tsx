@@ -130,8 +130,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function AlbumDetailPage({ params }: { params: { id: string } }) {
-  const album = albums.find(a => a.id === params.id)
+export default async function AlbumDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const album = albums.find(async a => a.id === (await params).id)
 
   if (!album) {
     notFound()
