@@ -12,49 +12,49 @@ export default async function NewsPage({
   
   const newsItems = [
     {
-      id: "new-album-release-2025",
-      title: locale === 'ja' ? "新アルバム「Schvitz」リリース決定！" : "New Album 'Schvitz' Release Announced!",
+      id: "dummy-news-1",
+      title: locale === 'ja' ? "【ダミー】新着ニュースのタイトル1" : "[DUMMY] Latest News Title 1",
       date: "2025-01-15",
       excerpt: locale === 'ja'
-        ? "Vulfpeckが2年ぶりとなる新作アルバム「Schvitz」を3月にリリースすることを発表しました。"
-        : "Vulfpeck announced they will release their new album 'Schvitz' in March, their first in two years.",
-      category: locale === 'ja' ? "リリース" : "Release"
+        ? "これはダミーテキストです。実際のニュース内容に置き換えてください。Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        : "This is dummy text. Please replace with actual news content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      category: locale === 'ja' ? "お知らせ" : "News"
     },
     {
-      id: "japan-tour-2025",
-      title: locale === 'ja' ? "初の日本ツアー開催が決定" : "First Japan Tour Confirmed",
+      id: "dummy-news-2",
+      title: locale === 'ja' ? "【ダミー】イベント情報のサンプル" : "[DUMMY] Event Information Sample",
       date: "2025-01-10",
       excerpt: locale === 'ja'
-        ? "待望の日本初上陸！東京・大阪・名古屋での公演が6月に開催されます。"
-        : "The long-awaited first Japan tour! Concerts will be held in Tokyo, Osaka, and Nagoya in June.",
-      category: locale === 'ja' ? "ライブ" : "Live"
+        ? "ダミーのイベント情報です。実際の内容に更新してください。sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        : "Dummy event information. Please update with actual content. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      category: locale === 'ja' ? "イベント" : "Event"
     },
     {
-      id: "theo-solo-project",
-      title: locale === 'ja' ? "Theo Katzmanソロプロジェクト始動" : "Theo Katzman Solo Project Launches",
+      id: "dummy-news-3",
+      title: locale === 'ja' ? "【ダミー】アップデート情報" : "[DUMMY] Update Information",
       date: "2025-01-05",
       excerpt: locale === 'ja'
-        ? "VulfpeckのボーカリストTheo Katzmanが新たなソロプロジェクトを発表。"
-        : "Vulfpeck vocalist Theo Katzman announced his new solo project.",
-      category: locale === 'ja' ? "メンバー" : "Members"
+        ? "サンプルのアップデート情報です。実際のコンテンツで置き換えが必要です。Ut enim ad minim veniam, quis nostrud exercitation."
+        : "Sample update information. Needs to be replaced with actual content. Ut enim ad minim veniam, quis nostrud exercitation.",
+      category: locale === 'ja' ? "更新情報" : "Updates"
     },
     {
-      id: "wong-notes-podcast",
-      title: locale === 'ja' ? "Wong Notes ポッドキャスト新エピソード" : "New Wong Notes Podcast Episode",
+      id: "dummy-news-4",
+      title: locale === 'ja' ? "【ダミー】メディア掲載のお知らせ" : "[DUMMY] Media Coverage Notice",
       date: "2024-12-20",
       excerpt: locale === 'ja'
-        ? "Cory Wongのポッドキャストに全メンバーが出演。制作秘話を語る。"
-        : "All members appear on Cory Wong's podcast, sharing behind-the-scenes stories.",
+        ? "ダミーのメディア掲載情報です。実際の掲載情報に変更してください。Ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        : "Dummy media coverage information. Please change to actual coverage details. Ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       category: locale === 'ja' ? "メディア" : "Media"
     },
     {
-      id: "vulfpeck-documentary",
-      title: locale === 'ja' ? "ドキュメンタリー映画制作決定" : "Documentary Film in Production",
+      id: "dummy-news-5",
+      title: locale === 'ja' ? "【ダミー】重要なお知らせ" : "[DUMMY] Important Announcement",
       date: "2024-12-15",
       excerpt: locale === 'ja'
-        ? "Vulfpeckの10年間の軌跡を追うドキュメンタリー映画の制作が発表されました。"
-        : "A documentary film following Vulfpeck's 10-year journey has been announced.",
-      category: locale === 'ja' ? "メディア" : "Media"
+        ? "これはプレースホルダーテキストです。本番環境では実際のお知らせ内容に差し替えてください。Duis aute irure dolor in reprehenderit."
+        : "This is placeholder text. Replace with actual announcement content in production. Duis aute irure dolor in reprehenderit.",
+      category: locale === 'ja' ? "重要" : "Important"
     }
   ]
   

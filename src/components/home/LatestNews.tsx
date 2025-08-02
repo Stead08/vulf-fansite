@@ -8,39 +8,39 @@ interface LatestNewsProps {
   locale: Locale
 }
 
-// 仮のニュースデータ（後でMDXから取得）
+// ダミーニュースデータ（後でMDXから取得）
 const getMockNews = (locale: Locale): NewsArticle[] => {
   const isJapanese = locale === 'ja'
   return [
     {
-      slug: "new-album-release-2025",
-      title: isJapanese ? "新アルバム「Schvitz」リリース決定！" : "New Album 'Schvitz' Release Announced!",
+      slug: "dummy-news-1",
+      title: isJapanese ? "【ダミー】新着ニュースのタイトル1" : "[DUMMY] Latest News Title 1",
       date: "2025-01-15",
       excerpt: isJapanese
-        ? "Vulfpeckが2年ぶりとなる新作アルバム「Schvitz」を3月にリリースすることを発表しました。"
-        : "Vulfpeck announced they will release their new album 'Schvitz' in March, their first in two years.",
-      tags: isJapanese ? ["アルバム", "リリース"] : ["Album", "Release"],
-      image: "/images/news/schvitz-album.jpg",
+        ? "これはダミーテキストです。実際のニュース内容に置き換えてください。Lorem ipsum dolor sit amet."
+        : "This is dummy text. Please replace with actual news content. Lorem ipsum dolor sit amet.",
+      tags: isJapanese ? ["ダミー", "サンプル"] : ["Dummy", "Sample"],
+      image: "/images/placeholder.svg",
     },
     {
-      slug: "japan-tour-2025",
-      title: isJapanese ? "初の日本ツアー開催が決定" : "First Japan Tour Confirmed",
+      slug: "dummy-news-2",
+      title: isJapanese ? "【ダミー】イベント情報のサンプル" : "[DUMMY] Event Information Sample",
       date: "2025-01-10",
       excerpt: isJapanese
-        ? "待望の日本初上陸！東京・大阪・名古屋での公演が6月に開催されます。"
-        : "The long-awaited first Japan tour! Concerts will be held in Tokyo, Osaka, and Nagoya in June.",
-      tags: isJapanese ? ["ライブ", "日本ツアー"] : ["Live", "Japan Tour"],
-      image: "/images/news/japan-tour.jpg",
+        ? "ダミーのイベント情報です。実際の内容に更新してください。Consectetur adipiscing elit."
+        : "Dummy event information. Please update with actual content. Consectetur adipiscing elit.",
+      tags: isJapanese ? ["イベント", "テスト"] : ["Event", "Test"],
+      image: "/images/placeholder.svg",
     },
     {
-      slug: "theo-solo-project",
-      title: isJapanese ? "Theo Katzmanソロプロジェクト始動" : "Theo Katzman Solo Project Launches",
+      slug: "dummy-news-3",
+      title: isJapanese ? "【ダミー】アップデート情報" : "[DUMMY] Update Information",
       date: "2025-01-05",
       excerpt: isJapanese
-        ? "VulfpeckのボーカリストTheo Katzmanが新たなソロプロジェクトを発表。"
-        : "Vulfpeck vocalist Theo Katzman announced his new solo project.",
-      tags: isJapanese ? ["メンバー", "ソロ活動"] : ["Members", "Solo Work"],
-      image: "/images/news/theo-solo.jpg",
+        ? "サンプルのアップデート情報です。実際のコンテンツで置き換えが必要です。"
+        : "Sample update information. Needs to be replaced with actual content.",
+      tags: isJapanese ? ["更新", "プレースホルダー"] : ["Update", "Placeholder"],
+      image: "/images/placeholder.svg",
     },
   ]
 }
@@ -57,8 +57,8 @@ export default function LatestNews({ dictionary, locale }: LatestNewsProps) {
           </h2>
           <p className="text-lg text-brown-600 max-w-2xl mx-auto">
             {locale === 'ja' 
-              ? 'Vulfpeckの最新情報、リリース情報、ライブスケジュールなどをお届けします'
-              : 'Get the latest Vulfpeck news, releases, and live schedules'
+              ? 'ここにはダミーのニュース情報が表示されています。実際のコンテンツに置き換えてください。'
+              : 'This section displays dummy news content. Please replace with actual content.'
             }
           </p>
         </div>

@@ -48,8 +48,13 @@ export function middleware(request: NextRequest) {
 
   // 環境変数から認証情報を取得
   const { env } = getCloudflareContext()
-  const username = env.BASIC_AUTH_USERNAME || "admin"
-  const password = env.BASIC_AUTH_PASSWORD || "password"
+  const username = env.BASIC_AUTH_USERNAME
+  const password = env.BASIC_AUTH_PASSWORD
+
+  if (!username || !password) {
+    // ない場合は本番として認証なし
+    return NextResponse.next()
+  }
 
   if (basicAuth) {
     const authValue = basicAuth.split(" ")[1]
