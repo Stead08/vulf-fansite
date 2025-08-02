@@ -1,3 +1,4 @@
+import { getCloudflareContext } from "@opennextjs/cloudflare/cloudflare-context";
 import type { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
 
@@ -11,8 +12,9 @@ export function middleware(request: NextRequest) {
   const basicAuth = request.headers.get("authorization")
 
   // 環境変数から認証情報を取得
-  const username = process.env.BASIC_AUTH_USERNAME || "admin"
-  const password = process.env.BASIC_AUTH_PASSWORD || "password"
+  const { env } = getCloudflareContext();
+  const username = env.BASIC_AUTH_USERNAME || "admin"
+  const password = env.BASIC_AUTH_PASSWORD || "password"
 
   if (basicAuth) {
     const authValue = basicAuth.split(" ")[1]
