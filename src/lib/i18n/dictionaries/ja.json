@@ -1,0 +1,49 @@
+{
+  "navigation": {
+    "home": "ホーム",
+    "about": "私たちについて",
+    "members": "メンバー",
+    "discography": "ディスコグラフィー",
+    "live": "ライブ",
+    "news": "ニュース",
+    "media": "メディア"
+  },
+  "home": {
+    "hero": {
+      "title": "Vulfpeck",
+      "subtitle": "ミニマルファンクの革命"
+    },
+    "welcome": "Vulfpeckの公式ファンサイトへようこそ"
+  },
+  "about": {
+    "title": "Vulfpeckについて",
+    "description": "Vulfpeckは2011年に結成されたアメリカのファンクバンドです。"
+  },
+  "members": {
+    "title": "メンバー",
+    "viewDetails": "詳細を見る"
+  },
+  "discography": {
+    "title": "ディスコグラフィー",
+    "releaseDate": "リリース日"
+  },
+  "live": {
+    "title": "ライブ情報",
+    "upcoming": "今後のライブ",
+    "past": "過去のライブ"
+  },
+  "news": {
+    "title": "ニュース",
+    "readMore": "続きを読む"
+  },
+  "media": {
+    "title": "メディア",
+    "videos": "動画",
+    "photos": "写真"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "backToHome": "ホームに戻る"
+  }
+}

@@ -2,6 +2,17 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { userEvent, within } from "@storybook/test"
 import Header from "./Header"
 
+const mockDictionary = {
+  navigation: {
+    home: "ホーム",
+    about: "バンド情報",
+    discography: "ディスコグラフィー",
+    live: "ライブ",
+    news: "ニュース",
+    media: "メディア"
+  }
+}
+
 const meta = {
   title: "Layout/Header",
   component: Header,
@@ -9,14 +20,27 @@ const meta = {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
+  args: {
+    locale: 'ja' as const,
+    dictionary: mockDictionary
+  }
 } satisfies Meta<typeof Header>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  }
+}
 
 export const Mobile: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  },
   parameters: {
     viewport: {
       defaultViewport: "mobile1",
@@ -25,6 +49,10 @@ export const Mobile: Story = {
 }
 
 export const Tablet: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  },
   parameters: {
     viewport: {
       defaultViewport: "tablet",
@@ -33,6 +61,10 @@ export const Tablet: Story = {
 }
 
 export const MobileMenuOpen: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  },
   parameters: {
     viewport: {
       defaultViewport: "mobile1",
@@ -46,6 +78,10 @@ export const MobileMenuOpen: Story = {
 }
 
 export const WithScroll: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  },
   decorators: [
     (Story: any) => (
       <div style={{ height: "200vh" }}>
@@ -56,4 +92,20 @@ export const WithScroll: Story = {
       </div>
     ),
   ],
+}
+
+export const EnglishVersion: Story = {
+  args: {
+    locale: 'en',
+    dictionary: {
+      navigation: {
+        home: "Home",
+        about: "About",
+        discography: "Discography",
+        live: "Live",
+        news: "News",
+        media: "Media"
+      }
+    }
+  }
 }

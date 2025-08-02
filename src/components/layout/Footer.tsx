@@ -1,27 +1,32 @@
 import Link from "next/link"
+import type { Locale } from "@/lib/i18n/config"
 
-const footerLinks = {
-  sitemap: [
-    { name: "ホーム", href: "/" },
-    { name: "バンド情報", href: "/about" },
-    { name: "ディスコグラフィー", href: "/discography" },
-    { name: "ライブ", href: "/live" },
-    { name: "ニュース", href: "/news" },
-    { name: "メディア", href: "/media" },
-  ],
-  social: [
-    { name: "Instagram", href: "https://www.instagram.com/vulfpeck/", external: true },
-    { name: "YouTube", href: "https://www.youtube.com/c/Vulfpeck", external: true },
-    {
-      name: "Spotify",
-      href: "https://open.spotify.com/artist/7pXu47GoqSYRajmBCjxdD6",
-      external: true,
-    },
-    { name: "Twitter", href: "https://twitter.com/vulfpeck", external: true },
-  ],
+interface FooterProps {
+  locale: Locale
+  dictionary: any
 }
 
-export default function Footer() {
+export default function Footer({ locale, dictionary }: FooterProps) {
+  const footerLinks = {
+    sitemap: [
+      { name: dictionary.navigation.home, href: `/${locale}` },
+      { name: dictionary.navigation.about, href: `/${locale}/about` },
+      { name: dictionary.navigation.discography, href: `/${locale}/discography` },
+      { name: dictionary.navigation.live, href: `/${locale}/live` },
+      { name: dictionary.navigation.news, href: `/${locale}/news` },
+      { name: dictionary.navigation.media, href: `/${locale}/media` },
+    ],
+    social: [
+      { name: "Instagram", href: "https://www.instagram.com/vulfpeck/", external: true },
+      { name: "YouTube", href: "https://www.youtube.com/c/Vulfpeck", external: true },
+      {
+        name: "Spotify",
+        href: "https://open.spotify.com/artist/7pXu47GoqSYRajmBCjxdD6",
+        external: true,
+      },
+      { name: "Twitter", href: "https://twitter.com/vulfpeck", external: true },
+    ],
+  }
   return (
     <footer className="bg-cream-200 mt-auto">
       <div className="container section-padding">
@@ -30,14 +35,18 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-display font-semibold text-brown-800 mb-4">Pocket Daké</h3>
             <p className="text-brown-700 text-sm leading-relaxed">
-              Vulfpeckの音楽と活動を日本のファンに向けて発信する非公式ファンサイトです。
-              最新情報やディスコグラフィー、ライブ情報などをお届けします。
+              {locale === 'ja' 
+                ? "Vulfpeckの音楽と活動を日本のファンに向けて発信する非公式ファンサイトです。最新情報やディスコグラフィー、ライブ情報などをお届けします。"
+                : "An unofficial fan site dedicated to sharing Vulfpeck's music and activities. Get the latest news, discography, and live information."
+              }
             </p>
           </div>
 
           {/* Site Map */}
           <div>
-            <h3 className="text-lg font-display font-semibold text-brown-800 mb-4">サイトマップ</h3>
+            <h3 className="text-lg font-display font-semibold text-brown-800 mb-4">
+              {locale === 'ja' ? 'サイトマップ' : 'Site Map'}
+            </h3>
             <ul className="space-y-2">
               {footerLinks.sitemap.map(link => (
                 <li key={link.name}>
@@ -54,7 +63,9 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-lg font-display font-semibold text-brown-800 mb-4">公式リンク</h3>
+            <h3 className="text-lg font-display font-semibold text-brown-800 mb-4">
+              {locale === 'ja' ? '公式リンク' : 'Official Links'}
+            </h3>
             <ul className="space-y-2">
               {footerLinks.social.map(link => (
                 <li key={link.name}>

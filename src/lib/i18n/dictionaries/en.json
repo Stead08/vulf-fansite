@@ -1,0 +1,49 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "members": "Members",
+    "discography": "Discography",
+    "live": "Live",
+    "news": "News",
+    "media": "Media"
+  },
+  "home": {
+    "hero": {
+      "title": "Vulfpeck",
+      "subtitle": "The Minimalist Funk Revolution"
+    },
+    "welcome": "Welcome to the Official Vulfpeck Fan Site"
+  },
+  "about": {
+    "title": "About Vulfpeck",
+    "description": "Vulfpeck is an American funk band formed in 2011."
+  },
+  "members": {
+    "title": "Members",
+    "viewDetails": "View Details"
+  },
+  "discography": {
+    "title": "Discography",
+    "releaseDate": "Release Date"
+  },
+  "live": {
+    "title": "Live Shows",
+    "upcoming": "Upcoming Shows",
+    "past": "Past Shows"
+  },
+  "news": {
+    "title": "News",
+    "readMore": "Read More"
+  },
+  "media": {
+    "title": "Media",
+    "videos": "Videos",
+    "photos": "Photos"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "backToHome": "Back to Home"
+  }
+}

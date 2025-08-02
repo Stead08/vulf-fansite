@@ -1,6 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import Footer from "./Footer"
 
+const mockDictionary = {
+  navigation: {
+    home: "ホーム",
+    about: "バンド情報",
+    discography: "ディスコグラフィー",
+    live: "ライブ",
+    news: "ニュース",
+    media: "メディア"
+  }
+}
+
 const meta = {
   title: "Layout/Footer",
   component: Footer,
@@ -8,14 +19,27 @@ const meta = {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
+  args: {
+    locale: 'ja' as const,
+    dictionary: mockDictionary
+  }
 } satisfies Meta<typeof Footer>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  }
+}
 
 export const Mobile: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  },
   parameters: {
     viewport: {
       defaultViewport: "mobile1",
@@ -24,6 +48,10 @@ export const Mobile: Story = {
 }
 
 export const Tablet: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  },
   parameters: {
     viewport: {
       defaultViewport: "tablet",
@@ -32,6 +60,10 @@ export const Tablet: Story = {
 }
 
 export const DarkMode: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  },
   decorators: [
     (Story: any) => (
       <div style={{ background: "#1a1a1a", minHeight: "100vh" }}>
@@ -42,6 +74,10 @@ export const DarkMode: Story = {
 }
 
 export const WithContent: Story = {
+  args: {
+    locale: 'ja',
+    dictionary: mockDictionary
+  },
   decorators: [
     (Story: any) => (
       <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
@@ -53,4 +89,20 @@ export const WithContent: Story = {
       </div>
     ),
   ],
+}
+
+export const EnglishVersion: Story = {
+  args: {
+    locale: 'en',
+    dictionary: {
+      navigation: {
+        home: "Home",
+        about: "About",
+        discography: "Discography",
+        live: "Live",
+        news: "News",
+        media: "Media"
+      }
+    }
+  }
 }

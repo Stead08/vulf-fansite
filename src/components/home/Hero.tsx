@@ -1,33 +1,35 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function Hero() {
+interface HeroProps {
+  dictionary: any
+}
+
+export default function Hero({ dictionary }: HeroProps) {
   return (
     <section className="relative bg-gradient-to-b from-cream-100 to-cream-200 overflow-hidden">
       <div className="container section-padding">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Title */}
           <h1 className="text-5xl md:text-7xl font-display font-bold text-brown-900 mb-6 animate-in">
-            VULFPECK
+            {dictionary.home.hero.title}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-brown-700 mb-8">ミニマル・ファンクの革命児たち</p>
+          <p className="text-xl md:text-2xl text-brown-700 mb-8">{dictionary.home.hero.subtitle}</p>
 
           {/* Description */}
           <p className="text-lg text-brown-600 max-w-2xl mx-auto mb-12 leading-relaxed">
-            音楽業界の常識を覆し続ける4人組ファンクバンド、Vulfpeck。
-            <br />
-            そのグルーヴと革新的な活動を日本のファンにお届けします。
+            {dictionary.home.welcome}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/about" className="btn-primary inline-block">
-              バンドについて知る
+              {dictionary.navigation.about}
             </Link>
             <Link href="/discography" className="btn-secondary inline-block">
-              ディスコグラフィーを見る
+              {dictionary.navigation.discography}
             </Link>
           </div>
         </div>

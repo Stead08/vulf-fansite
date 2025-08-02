@@ -2,17 +2,23 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import type { Locale } from "@/lib/i18n/config"
+import LanguageSwitcher from "./LanguageSwitcher"
 
-const navigation = [
-  { name: "ホーム", href: "/" },
-  { name: "バンド情報", href: "/about" },
-  { name: "ディスコグラフィー", href: "/discography" },
-  { name: "ライブ", href: "/live" },
-  { name: "ニュース", href: "/news" },
-  { name: "メディア", href: "/media" },
-]
+interface HeaderProps {
+  locale: Locale
+  dictionary: any
+}
 
-export default function Header() {
+export default function Header({ locale, dictionary }: HeaderProps) {
+  const navigation = [
+    { name: dictionary.navigation.home, href: `/${locale}` },
+    { name: dictionary.navigation.about, href: `/${locale}/about` },
+    { name: dictionary.navigation.discography, href: `/${locale}/discography` },
+    { name: dictionary.navigation.live, href: `/${locale}/live` },
+    { name: dictionary.navigation.news, href: `/${locale}/news` },
+    { name: dictionary.navigation.media, href: `/${locale}/media` },
+  ]
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
@@ -21,14 +27,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
-            href="/"
+            href={`/${locale}`}
             className="text-2xl font-display font-bold text-forest-700 hover:text-forest-600 transition-colors"
           >
             Pocket Daké
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navigation.map(item => (
               <Link
                 key={item.name}
@@ -38,6 +44,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            <LanguageSwitcher currentLocale={locale} />
           </div>
 
           {/* Mobile Menu Button */}
@@ -81,6 +88,9 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
+              <div className="px-2 py-1">
+                <LanguageSwitcher currentLocale={locale} />
+              </div>
             </div>
           </div>
         )}

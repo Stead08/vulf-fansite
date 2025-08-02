@@ -1,8 +1,43 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare/cloudflare-context"
 import type { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
+import { i18nConfig } from "@/lib/i18n/config"
+
+// ロケールを検出する関数
+function getLocale(request: NextRequest): string {
+  // Accept-Languageヘッダーから言語を検出
+  const acceptLanguage = request.headers.get('accept-language')
+  if (acceptLanguage) {
+    const languages = acceptLanguage.split(',').map((lang) => {
+      const [code] = lang.trim().split(';')
+      return code.split('-')[0]
+    })
+    
+    // サポートしているロケールから最初にマッチするものを返す
+    for (const lang of languages) {
+      if (i18nConfig.locales.includes(lang as any)) {
+        return lang
+      }
+    }
+  }
+  
+  return i18nConfig.defaultLocale
+}
 
 export function middleware(request: NextRequest) {
+  // パスからロケールを取得
+  const pathname = request.nextUrl.pathname
+  const pathnameHasLocale = i18nConfig.locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  )
+
+  // ロケールがパスに含まれていない場合、デフォルトロケールにリダイレクト
+  if (!pathnameHasLocale) {
+    const locale = getLocale(request)
+    request.nextUrl.pathname = `/${locale}${pathname}`
+    return NextResponse.redirect(request.nextUrl)
+  }
+
   // 開発環境では認証をスキップ
   if (process.env.NODE_ENV === "development") {
     return NextResponse.next()
@@ -34,7 +69,7 @@ export function middleware(request: NextRequest) {
   })
 }
 
-// Matcherの設定 - 全てのページに適用
+// Matcherの設定 - 全てのページに適用（ただし静的ファイルは除外）
 export const config = {
   matcher: [
     /*
