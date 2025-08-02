@@ -3,6 +3,50 @@ import type { NextConfig } from "next"
 
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'scontent*.instagram.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.st-note.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'note.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'rollingstonejapan.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.rollingstonejapan.com',
+        pathname: '/**',
+      },
+    ],
+  },
   headers: async () => {
     return [
       {

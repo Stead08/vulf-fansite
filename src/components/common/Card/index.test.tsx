@@ -1,7 +1,7 @@
 import { composeStories } from "@storybook/nextjs-vite"
 import { render, screen } from "@testing-library/react"
 import { expect, test, vi } from "vitest"
-import * as stories from "./Card.stories"
+import * as stories from "./index.stories"
 
 const { Default, WithoutImage, WithoutTags, MinimalCard, LongContent } = composeStories(stories)
 

@@ -18,10 +18,11 @@ const geistMono = Geist_Mono({
 })
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
-  params: { locale: Locale }
+  params: Promise<{ locale: Locale }>
 }): Promise<Metadata> {
+  const { locale } = await params
   const isJapanese = locale === 'ja'
   
   return {
@@ -65,17 +66,18 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode
-  params: { locale: Locale }
+  params: Promise<{ locale: Locale }>
 }>) {
-  const dictionary = await getDictionary(params.locale)
+  const { locale } = await params
+  const dictionary = await getDictionary(locale)
   
   return (
-    <html lang={params.locale}>
+    <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="min-h-screen flex flex-col">
-          <Header locale={params.locale} dictionary={dictionary} />
+          <Header locale={locale} dictionary={dictionary} />
           <main className="flex-grow">{children}</main>
-          <Footer locale={params.locale} dictionary={dictionary} />
+          <Footer locale={locale} dictionary={dictionary} />
         </div>
       </body>
     </html>

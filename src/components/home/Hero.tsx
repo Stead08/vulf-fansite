@@ -1,5 +1,5 @@
-import Image from "next/image"
 import Link from "next/link"
+import OGPCardWrapper from "@/components/common/OGPCardWrapper"
 
 interface HeroProps {
   dictionary: any
@@ -39,22 +39,10 @@ export default function Hero({ dictionary }: HeroProps) {
         <div className="absolute bottom-0 right-0 w-48 h-48 bg-brown-200 rounded-full blur-3xl opacity-30 translate-x-1/2 translate-y-1/2" />
       </div>
 
-      {/* Featured Image Section */}
+      {/* Featured Article Section */}
       <div className="container pb-16">
-        <div className="relative aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10" />
-          <Image
-            src="/images/placeholder.svg"
-            alt="Vulfpeck Band"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-            <p className="text-white text-sm font-medium">
-              Jack Stratton, Theo Katzman, Woody Goss, Joe Dart
-            </p>
-          </div>
+        <div className="max-w-4xl mx-auto">
+          <OGPCardWrapper url="https://rollingstonejapan.com/articles/detail/42971" showDescription={false} />
         </div>
       </div>
     </section>
